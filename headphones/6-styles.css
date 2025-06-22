@@ -1,0 +1,189 @@
+/* CSS Variables */
+:root {
+    /* Colors */
+    --color-primary: #FF6565;
+    --color-primary-light: rgba(255, 101, 101, 0.9);
+    --color-black: #090909;
+    --color-white: #ffffff;
+    --color-grey: #a0a0a0;
+    --color-light-grey: #f3f3f3;
+    --color-dark-grey: #353535;
+    
+    /* Fonts */
+    --font-family-base: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+    
+    /* Spacing */
+    --section-padding: 8rem;
+    --section-padding-small: 4rem;
+    
+    /* Transitions */
+    --transition-medium: 0.3s ease;
+}
+
+/* Reset and Base Styles */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 62.5%;
+}
+
+body {
+    font-family: var(--font-family-base);
+    font-size: 1.6rem;
+    color: var(--color-black);
+    line-height: 1.6;
+}
+
+/* Reusable Components */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.section-title {
+    font-size: 3.2rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    text-align: center;
+    position: relative;
+    color: var(--color-white);
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 5rem;
+    height: 0.3rem;
+    background-color: var(--color-primary);
+    margin: 1.5rem auto 0;
+}
+
+.section-description {
+    font-size: 1.6rem;
+    line-height: 1.7;
+    color: var(--color-white);
+    text-align: center;
+    max-width: 70rem;
+    margin: 0 auto 5rem;
+    opacity: 0.9;
+}
+
+/* Our Results Section */
+.section-our-results {
+    padding: var(--section-padding) 0;
+    background-color: var(--color-dark-grey);
+    position: relative;
+}
+
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    gap: 4rem;
+    margin-top: 4rem;
+}
+
+.result-item {
+    display: flex;
+    justify-content: center;
+}
+
+/* Pentagon Styles */
+.pentagon {
+    width: 19rem;
+    height: 19rem;
+    position: relative;
+    transition: all var(--transition-medium);
+}
+
+.pentagon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-primary-light);
+    clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+    transition: all var(--transition-medium);
+}
+
+.pentagon:hover::before {
+    background-color: var(--color-primary);
+    transform: scale(1.05);
+}
+
+.pentagon-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    text-align: center;
+    z-index: 1;
+}
+
+.result-value {
+    font-size: 4.6rem;
+    font-weight: 700;
+    color: var(--color-white);
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.result-label {
+    font-size: 1.4rem;
+    color: var(--color-white);
+    text-align: center;
+    max-width: 10rem;
+    margin: 0 auto;
+    display: block;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .section-our-results {
+        padding: var(--section-padding-small) 0;
+    }
+    
+    .section-title {
+        font-size: 2.6rem;
+    }
+    
+    .section-description {
+        font-size: 1.4rem;
+    }
+    
+    .results-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+    
+    .pentagon {
+        width: 15rem;
+        height: 15rem;
+    }
+    
+    .result-value {
+        font-size: 3.6rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .results-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .pentagon {
+        width: 18rem;
+        height: 18rem;
+    }
+}

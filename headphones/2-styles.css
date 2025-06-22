@@ -1,0 +1,47 @@
+/* Previous CSS remains the same until the section styles */
+
+/* What We Do Section */
+.section-what-we-do {
+    padding: var(--section-padding) 0;
+    background-color: var(--color-white);
+}
+
+.section-what-we-do .section-title {
+    color: var(--color-black);
+}
+
+.section-what-we-do .section-title::after {
+    background-color: var(--color-primary);
+}
+
+/* Our Results Section */
+.section-our-results {
+    padding: var(--section-padding) 0;
+    background-image: url('../images/headphones_hero_2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.section-our-results::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 0;
+}
+
+.section-our-results > .container {
+    position: relative;
+    z-index: 1;
+}
+
+.section-our-results .section-title {
+    color: var(--color-white);
+}
+
+/* Rest of your existing CSS remains the same */

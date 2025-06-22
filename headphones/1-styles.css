@@ -1,0 +1,101 @@
+/* CSS Variables */
+:root {
+    /* Colors */
+    --color-primary: #FF6565;
+    --color-black: #090909;
+    --color-white: #ffffff;
+    --color-grey: #a0a0a0;
+    --color-light-grey: #f3f3f3;
+    --color-dark-grey: #353535;
+    
+    /* Fonts */
+    --font-family-base: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+    
+    /* Spacing */
+    --section-padding: 8rem;
+    --section-padding-small: 4rem;
+}
+
+/* Reset Styles */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 62.5%; /* 1rem = 10px */
+}
+
+body {
+    font-family: var(--font-family-base);
+    font-size: 1.6rem;
+    color: var(--color-black);
+    line-height: 1.6;
+}
+
+/* Utility Classes */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.section-title {
+    font-size: 3.2rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    text-align: center;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 5rem;
+    height: 0.3rem;
+    background-color: var(--color-primary);
+    margin: 1.5rem auto 0;
+}
+
+.section-description {
+    font-size: 1.6rem;
+    line-height: 1.7;
+    color: var(--color-dark-grey);
+    text-align: center;
+    max-width: 70rem;
+    margin: 0 auto 5rem;
+}
+
+/* What We Do Section */
+.section-what-we-do {
+    padding: var(--section-padding) 0;
+    background-color: var(--color-white);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap: 4rem;
+    margin-top: 4rem;
+}
+
+.service-item {
+    text-align: center;
+    padding: 3rem 2rem;
+    transition: transform 0.3s ease;
+}
+
+.service-item:hover {
+    transform: translateY(-1rem);
+}
+
+.icon {
+    font-size: 6rem;
+    color: var(--color-primary);
+    margin-bottom: 2rem;
+    display

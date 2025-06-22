@@ -1,0 +1,132 @@
+/* CSS Variables */
+:root {
+    /* Colors */
+    --color-primary: #FF6565;
+    --color-black: #090909;
+    --color-white: #ffffff;
+    --color-grey: #a0a0a0;
+    --color-light-grey: #f3f3f3;
+    --color-dark-grey: #353535;
+    
+    /* Fonts */
+    --font-family-base: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+    
+    /* Spacing */
+    --section-padding: 8rem;
+    --section-padding-small: 4rem;
+    
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+}
+
+/* Reset and Base Styles */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 62.5%;
+}
+
+body {
+    font-family: var(--font-family-base);
+    font-size: 1.6rem;
+    color: var(--color-black);
+    line-height: 1.6;
+}
+
+/* Reusable Components */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Footer Styles */
+.footer {
+    background-color: var(--color-dark-grey);
+    color: var(--color-white);
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+}
+
+.footer-logo img {
+    height: 3.2rem;
+    filter: brightness(0) invert(1);
+}
+
+.social-links {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+.social-link {
+    display: inline-block;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--color-white);
+    font-size: 1.8rem;
+    line-height: 4rem;
+    transition: all var(--transition-fast);
+}
+
+.social-link:hover {
+    background-color: var(--color-primary);
+    transform: translateY(-3px);
+}
+
+.footer-copyright p {
+    font-size: 1.2rem;
+    color: var(--color-white);
+    opacity: 0.5;
+    margin: 0;
+}
+
+/* Responsive Styles */
+@media (min-width: 768px) {
+    .footer-content {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        text-align: left;
+    }
+    
+    .social-links {
+        order: 3;
+    }
+    
+    .footer-copyright {
+        order: 2;
+        flex-grow: 1;
+        text-align: center;
+    }
+}
+
+/* Animation for social icons */
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0); }
+}
+
+.social-link:hover .holberton_school-icon {
+    animation: float 1.5s infinite;
+}

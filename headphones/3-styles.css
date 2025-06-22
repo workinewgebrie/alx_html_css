@@ -1,0 +1,219 @@
+/* CSS Variables */
+:root {
+    /* Colors */
+    --color-primary: #FF6565;
+    --color-primary-light: rgba(255, 101, 101, 0.9);
+    --color-black: #090909;
+    --color-white: #ffffff;
+    --color-grey: #a0a0a0;
+    --color-light-grey: #f3f3f3;
+    --color-dark-grey: #353535;
+    --color-form-grey: #979797;
+    
+    /* Fonts */
+    --font-family-base: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+    
+    /* Spacing */
+    --section-padding: 8rem;
+    --section-padding-small: 4rem;
+    
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-medium: 0.3s ease;
+}
+
+/* Reset and Base Styles */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 62.5%;
+}
+
+body {
+    font-family: var(--font-family-base);
+    font-size: 1.6rem;
+    color: var(--color-black);
+    line-height: 1.6;
+}
+
+/* Reusable Components */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.section-title {
+    font-size: 3.2rem;
+    font-weight: 600;
+    margin-bottom: 4rem;
+    text-align: center;
+    position: relative;
+    color: var(--color-black);
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 5rem;
+    height: 0.3rem;
+    background-color: var(--color-primary);
+    margin: 1.5rem auto 0;
+}
+
+.btn {
+    display: inline-block;
+    padding: 1.3rem 3.2rem;
+    border-radius: 2.2rem;
+    font-weight: 700;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    transition: all var(--transition-medium);
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    margin-top: 2rem;
+}
+
+.btn-primary:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Contact Us Section */
+.section-contact {
+    padding: var(--section-padding) 0;
+    background-color: var(--color-white);
+}
+
+.contact-form {
+    max-width: 60rem;
+    margin: 0 auto;
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 3rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 1rem 0;
+    font-size: 1.6rem;
+    color: var(--color-black);
+    border: none;
+    border-bottom: 1px solid var(--color-form-grey);
+    outline: none;
+    background: transparent;
+    transition: all var(--transition-fast);
+}
+
+.form-group label {
+    position: absolute;
+    top: 1rem;
+    left: 0;
+    font-size: 1.6rem;
+    color: var(--color-form-grey);
+    pointer-events: none;
+    transition: all var(--transition-fast);
+}
+
+.form-group .underline {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-primary);
+    transition: all var(--transition-medium);
+}
+
+/* Form Input Effects */
+.form-group input:focus ~ label,
+.form-group input:valid ~ label {
+    top: -2rem;
+    left: 0;
+    font-size: 1.2rem;
+    color: var(--color-primary);
+}
+
+.form-group input:focus ~ .underline,
+.form-group input:valid ~ .underline {
+    width: 100%;
+}
+
+/* Form Validation Styles */
+.form-group.error input {
+    border-bottom-color: #ff3860;
+}
+
+.form-group.error label {
+    color: #ff3860;
+}
+
+.form-group .error-message {
+    position: absolute;
+    bottom: -2rem;
+    left: 0;
+    font-size: 1.2rem;
+    color: #ff3860;
+    opacity: 0;
+    transition: all var(--transition-fast);
+}
+
+.form-group.error .error-message {
+    opacity: 1;
+}
+
+/* Success Message */
+.form-success {
+    text-align: center;
+    font-size: 1.8rem;
+    color: var(--color-primary);
+    margin-top: 2rem;
+    opacity: 0;
+    transform: translateY(1rem);
+    transition: all var(--transition-medium);
+}
+
+.form-success.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .section-contact {
+        padding: var(--section-padding-small) 0;
+    }
+    
+    .section-title {
+        font-size: 2.6rem;
+    }
+    
+    .contact-form {
+        padding: 0 2rem;
+    }
+}
+
+/* Animations */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+.shake {
+    animation: shake 0.5s;
+}
